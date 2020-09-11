@@ -13,7 +13,7 @@ interface SlideshowModel {
   }[]
 }
 
-interface SlideshowReq < T > extends e.Request {
+interface SlideshowReq<T> extends e.Request {
   body: T
 }
 
@@ -30,7 +30,7 @@ interface Layer {
   text ? : string
 }
 
-export async function slideshow(req: SlideshowReq < SlideshowModel > , res: e.Response) {
+export async function slideshow(req: SlideshowReq<SlideshowModel>, res: e.Response) {
   // use a scheduler like "bull" here
 
   const data = {
