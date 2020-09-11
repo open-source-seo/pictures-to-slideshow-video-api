@@ -1,6 +1,7 @@
 import * as e from 'express'
 const editly = require('editly')
 
+// TODO: move model defs to ./models
 interface SlideshowModel {
   outPath: string,
   images: {
@@ -31,7 +32,7 @@ interface Layer {
 }
 
 export async function slideshow(req: SlideshowReq<SlideshowModel>, res: e.Response) {
-  // use a scheduler like "bull" here
+  // TODO: use a scheduler like "bull" here
 
   const data = {
     outPath: req.body.outPath || '/tmp/video.mp4',
