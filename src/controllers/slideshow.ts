@@ -3,14 +3,14 @@ const editly = require('editly')
 
 interface SlideshowModel {
   outPath: string,
-    images: {
-      source: string,
-      position: string,
-      subtitle: {
-        fontSize: number,
-        content: string
-      }
-    }[]
+  images: {
+    source: string,
+    position: string,
+    subtitle: {
+      fontSize: number,
+      content: string
+    }
+  }[]
 }
 
 interface SlideshowReq < T > extends e.Request {
@@ -19,15 +19,15 @@ interface SlideshowReq < T > extends e.Request {
 
 interface Clip {
   duration: number,
-    layers: Layer[]
+  layers: Layer[]
 }
 
 interface Layer {
   type: string,
-    path ? : string,
-    zoomDirection ? : any,
-    position ? : string,
-    text ? : string
+  path ? : string,
+  zoomDirection ? : any,
+  position ? : string,
+  text ? : string
 }
 
 export async function slideshow(req: SlideshowReq < SlideshowModel > , res: e.Response) {
