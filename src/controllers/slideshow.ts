@@ -25,10 +25,10 @@ interface Clip {
 
 interface Layer {
   type: string,
-  path ? : string,
-  zoomDirection ? : any,
-  position ? : string,
-  text ? : string
+  path? : string,
+  zoomDirection? : any,
+  position? : string,
+  text? : string
 }
 
 export async function slideshow(req: SlideshowReq<SlideshowModel>, res: e.Response) {
