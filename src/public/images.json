@@ -1,0 +1,37 @@
+{
+  "outPath": "/tmp/video.mp4",
+  "images": [
+    {
+      "source": "./src/public/1597750992594451.jpg",
+      "position": "center",
+      "subtitle": {
+        "fontSize": 10,
+        "content": "Pendule d'inspiration Louis XV en bois sculpté et laqué à patine verte et or - [...]"
+      }
+    },
+    {
+      "source": "./src/public/1597755261645290.jpg",
+      "position": "center",
+      "subtitle": {
+        "fontSize": 10,
+        "content": "École allemande, XIXe - Portrait du pianiste Carl Maria von Weber (1786-1826) - [...]"
+      }
+    },
+    {
+      "source": "./src/public/1597751126706051.jpg",
+      "position": "center",
+      "subtitle": {
+        "fontSize": 10,
+        "content": "Paire de petits vases à deux anses et leur couvercle de style Louis XVI en [...]"
+      }
+    },
+    {
+      "source": "./src/public/1597750992594451.jpg",
+      "position": "center",
+      "subtitle": {
+        "fontSize": 10,
+        "content": "Sellette tripode de style Napoléon III en bois sculpté noirci au pied décoré d'un [...]"
+      }
+    }
+  ]
+}

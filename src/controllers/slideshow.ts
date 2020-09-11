@@ -1,67 +1,67 @@
 import * as e from 'express'
 const editly = require('editly')
 
-export async function slideshow(req: e.Request, res: e.Response) {
-  // use a scheduler like "bull" here
-  console.log(req.params)
+interface SlideshowModel {
+  outPath: string,
+    images: {
+      source: string,
+      position: string,
+      subtitle: {
+        fontSize: number,
+        content: string
+      }
+    }[]
+}
 
-  try {
-    await editly({
-      outPath: '/tmp/video.mp4',
-      defaults: {
-        transition: {
-          name: 'fade'
-        },
+interface SlideshowReq < T > extends e.Request {
+  body: T
+}
+
+interface Clip {
+  duration: number,
+    layers: Layer[]
+}
+
+interface Layer {
+  type: string,
+    path ? : string,
+    zoomDirection ? : any,
+    position ? : string,
+    text ? : string
+}
+
+export async function slideshow(req: SlideshowReq < SlideshowModel > , res: e.Response) {
+  // use a scheduler like "bull" here
+
+  const data = {
+    outPath: req.body.outPath || '/tmp/video.mp4',
+    defaults: {
+      transition: {
+        name: 'fade'
       },
-      clips: [{
-        duration: 3,
-        layers: [{
-          type: 'image-overlay',
-          path: './src/public/1597750992594451.jpg',
-          zoomDirection: null,
-          position: 'center'
-        }, {
-          type: 'subtitle',
-          text: 'Pendule d\'inspiration Louis XV en bois sculpté et laqué à patine verte et or - [...]'
-        }]
+    },
+    clips: [] as Clip[]
+  }
+
+  for (const img of req.body.images) {
+    data.clips.push({
+      duration: 3,
+      layers: [{
+        type: 'image-overlay',
+        path: img.source,
+        zoomDirection: null,
+        position: img.position || 'center'
       }, {
-        duration: 3,
-        layers: [{
-          type: 'image-overlay',
-          path: './src/public/1597755261645290.jpg',
-          zoomDirection: null,
-          position: 'center'
-        }, {
-          type: 'subtitle',
-          text: 'École allemande, XIXe - Portrait du pianiste Carl Maria von Weber (1786-1826) - [...]'
-        }]
-      }, {
-        duration: 3,
-        layers: [{
-          type: 'image-overlay',
-          path: './src/public/1597751126706051.jpg',
-          zoomDirection: null,
-          position: 'center'
-        }, {
-          type: 'subtitle',
-          text: 'Paire de petits vases à deux anses et leur couvercle de style Louis XVI en [...]'
-        }]
-      }, {
-        duration: 3,
-        layers: [{
-          type: 'image-overlay',
-          path: './src/public/1597750992594451.jpg',
-          zoomDirection: null,
-          position: 'center'
-        }, {
-          type: 'subtitle',
-          text: 'Sellette tripode de style Napoléon III en bois sculpté noirci au pied décoré d\'un [...]'
-        }]
+        type: 'subtitle',
+        text: img.subtitle.content
       }]
     })
+  }
 
+  try {
+    await editly(data)
     res.send('Transcoding done!')
   } catch (error) {
-    res.status(503).send('Transcoding failed')
+    res.status(500).send('Transcoding failed')
   }
 }
