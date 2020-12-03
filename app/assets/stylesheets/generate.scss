@@ -1,0 +1,94 @@
+// Place all the styles related to the Generate controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+body {
+  background-color: #ccc4be;
+  font-family: Actief Grotesque,-apple-system,\.SFNSText-Regular,San Francisco,Roboto,Segoe UI,Helvetica Neue,Lucida Grande,sans-serif;
+}
+
+#modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+#modal-content {
+  display: block;
+  margin: 10% auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 12px 0 rgba(0,0,0,.1),0 10px 30px 0 rgba(0,0,0,.2);
+  width: 50%;
+  height: 30em;
+}
+
+#files {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow: auto;
+  height: 80%;
+}
+
+#button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20%;
+}
+
+#button button {
+  background: #babcbf;
+  border-color: #babcbf;
+  color: white;
+  cursor: default;
+  border: 1px solid #babcbf;
+  border-radius: 1.25em;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: 2.5em;
+  width: 9.75em;
+  outline: 0;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1;
+}
+
+#initial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#initial svg {
+  height: 2.25em;
+  width: 2.25em;
+  margin: 0 .625em 0 0em;
+  transition: all .4s cubic-bezier(.77,0,.175,1);
+}
+
+#initial svg path {
+  transition: all .33s cubic-bezier(.77,0,.175,1)
+}
+
+#initial h2 {
+  font-size: 1.375em;
+  font-weight: 400;
+  line-height: 1;
+}
+
+#initial:hover {
+  cursor: pointer;
+}
+
+#initial:hover svg path {
+  fill: #0073e5;
+  transition: all .33s cubic-bezier(.77,0,.175,1)
+}
