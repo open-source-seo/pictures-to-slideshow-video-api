@@ -70,6 +70,14 @@ body {
   cursor: pointer;
 }
 
+#initial form {
+  position: relative;
+  height: 1px;
+  width: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
+
 #initial-content {
   display: flex;
   align-items: center;
